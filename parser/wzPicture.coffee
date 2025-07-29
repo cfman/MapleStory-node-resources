@@ -56,6 +56,18 @@ class Wz_Picture # assign to origin Wz_Png class
           rgba[i*4 + 2] = raw[i*4 + 0]
           rgba[i*4 + 3] = raw[i*4 + 3]
         rgba
+      when 513 # RGB565
+        rgba = new Uint8ClampedArray(@width * @height * 4)
+        (if @width * @height then [0..@width * @height - 1] else []).map (i) =>
+          rgb565 = raw[i*2] | (raw[i*2+1] << 8)
+          r = (rgb565 >> 11) & 0x1F
+          g = (rgb565 >> 5) & 0x3F
+          b = rgb565 & 0x1F
+          rgba[i*4 + 0] = (r << 3) | (r >> 2)
+          rgba[i*4 + 1] = (g << 2) | (g >> 4)
+          rgba[i*4 + 2] = (b << 3) | (b >> 2)
+          rgba[i*4 + 3] = 255
+        rgba
       when 1026, 2050
         console.error 'dxt flag: ', switch @form
           when 1026 then 'DXT3'
