@@ -36,16 +36,6 @@ cd MapleStory-node-resources
 # link or copy MapleStory with this repo folder
 #  or you can change Browser.js to change the origin location
 ln -s $HOME/Downloads/MapleStory ../origin
-npm start electron Browser
+npm run electron Browser
 ```
-
-### Server
-
-this project will provide a server function for the future client, but it hasn't been done.
-
-## Hierarchy
- - [client](./client/index.ts)
- - [server](./server/index.ts)
- - [classify](./classify/index.ts)
- - [pool](./pool/README.md)
- - [parser](./parser/index.d.ts)
+Some wz data can be found in [here](https://github.com/MapleStoryUnity/wzData)

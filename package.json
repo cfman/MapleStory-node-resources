@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "docs": "gulp coffee-compile && jsdoc -c jsdoc.conf.json -R README.md",
-    "electron": "electron browser/_electron.js"
+    "electron": "gulp coffee-compile && electron browser/_electron.js"
   },
   "keywords": [
     "maplestory"
