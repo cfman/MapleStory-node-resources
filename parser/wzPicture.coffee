@@ -73,7 +73,7 @@ class Wz_Picture # assign to origin Wz_Png class
     png = new PNG
       width: @width
       height: @height
-    png.data = new Buffer(await this.extractRGBA())
+    png.data = Buffer.from(await this.extractRGBA())
     # async not ready
     png
 

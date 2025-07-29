@@ -48,7 +48,7 @@ Wz_Crypto.DecryptFunction = DecryptFunction = (type) ->
 ###
 Wz_Crypto.DetectEncryption = DetectEncryption = (file) ->
   pos = file.offset
-  buffer = new Buffer(4)
+  buffer = Buffer.alloc(4)
   if (await fsread(file.descriptor.fd, buffer, 0, 1, pos)).bytesRead is 1
     length = if buffer[0] is 0x80
       await fsread(file.descriptor.fd, buffer, 0, 4, pos+1)
@@ -57,7 +57,7 @@ Wz_Crypto.DetectEncryption = DetectEncryption = (file) ->
     else buffer[0]
     await fsread(file.descriptor.fd, buffer, 0, 1, pos+2)
     length = 256 - buffer[0]
-    buffer = new Buffer(length)
+    buffer = Buffer.alloc(length)
     await fsread(file.descriptor.fd, buffer, 0, length, pos+3)
     trans = buffer.map((o,i) => o ^ (0xAA + i))
     result = [ null, "BMS", "KMS", "GMS" ].map (type) -> String.fromCharCode DecryptFunction(type)(trans)...

@@ -62,7 +62,7 @@ class FileClass
   # @return {Promise<Buffer>}
   ###
   read: (length) ->
-    data = new Buffer(length)
+    data = Buffer.alloc(length)
     get = await fsread(@descriptor.fd,data,0,length,@offset)
     @offset += get.bytesRead
     throw get.err if get.err
