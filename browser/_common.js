@@ -1,9 +1,4 @@
 /**
- * Electron current window element
- */
-let win = require('electron').remote.getCurrentWindow()
-
-/**
  * Use Pug template engine to render HTML
  *
  * [Pug Documentation](https://pugjs.org)
@@ -22,4 +17,4 @@ function render(mod, ...args) {
  */
 function pbcopy(str) {let copy = require('child_process').spawn('pbcopy');copy.stdin.write(str.toString());copy.stdin.end()};
 
-module.exports = { win, render, pbcopy };
+module.exports = { render, pbcopy };

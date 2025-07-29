@@ -16,14 +16,14 @@
   "devDependencies": {
     "coffeescript": "^2.0.0-beta5",
     "colors": "^1.1.2",
-    "electron": "^1.7.5",
+    "electron": "^37.0.0",
     "gulp": "^3.9.1",
     "gulp-changed": "^3.1.0",
     "gulp-coffee2": "^2.3.4",
     "gulp-sourcemaps": "^2.6.1",
     "gulp-typescript": "^3.2.2",
     "jsdoc": "^3.5.4",
-    "memwatch-next": "^0.3.0",
+    "@airbnb/node-memwatch": "3.0.0",
     "merge2": "^1.2.0",
     "pug": "^2.0.0-rc.3",
     "typescript": "^2.5.2"
@@ -33,5 +33,8 @@
     "deflate-js": "^0.2.3",
     "iconv-lite": "^0.4.18",
     "pngjs": "^3.3.0"
+  },
+  "overrides": {
+    "graceful-fs": "^4.2.11"
   }
 }

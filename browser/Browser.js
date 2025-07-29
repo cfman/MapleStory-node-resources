@@ -1,6 +1,5 @@
 const {
-  render,
-  win, pbcopy
+  render, pbcopy
 } = require('./_common')
 const fs = require('fs');
 const path = require('path');
